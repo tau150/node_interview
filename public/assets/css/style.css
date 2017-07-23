@@ -1,0 +1,59 @@
+.main-title {
+  margin: 10% 0;
+  color: #82BB23;
+  text-align: center;
+}
+
+.submit-button {
+  margin: 10% 0;
+}
+
+.checkbox {
+  text-align: center;
+}
+
+fieldset {
+  margin-top: 10%;
+}
+
+.submit-button-container {
+  text-align: center;
+}
+
+.submit-button {
+  background: #82BB23;
+  color: #fff;
+}
+
+.submit-button:hover {
+  background: transparent;
+  border-color: #82BB23;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+.quotes {
+  display: inline-block;
+}
+
+.url {
+  font-weight: bold;
+}
+
+.h1-titles {
+  margin: 5% 0;
+  color: #82BB23;
+  text-align: center;
+}
+
+.effect {
+  color: #82BB23;
+}
+
+.error-title, h3 {
+  color: #82BB23;
+  text-align: center;
+}
