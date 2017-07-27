@@ -1,25 +1,50 @@
-$(document).ready(function(){
+$(document).ready(()=>{
 
-  var newElements = $('input').filter(function() {
-      return $(this).val() === '0';
-  });
+let listFromClient = $('.titles-list li .url').get();
+
+function highLigth(element) {
+   $.each( listFromClient, ( key, value )=> {
+     let url = $(value).text();
+      if(url === element){
+        $(value).closest('li').addClass('effect');
+      }
+
+   });
+ }
+
+ if( $('.hidden-urls').length !==0){
+   let urlFromDb = $('.hidden-urls').val().split(',');
+   if(urlFromDb.length > 1) {
+     $.each(urlFromDb, (k, v)=>{
+         highLigth(v);
+       });
+   }else{
+       highLigth( urlFromDb[0] ) ;
+     };
 
 
-  function addClassToNew(){
+ }
 
-    $.each(newElements, function( k, v ) {
-      $(v).closest('li').addClass('effect');
-    });
+ $('.add-input').click(()=>{
+
+    $('.urls-inputs').append("<input type='text' class='form-control url-input' name='url' id='exampleInputEmail1' value='' placeholder='https://google.com http://eldia.com.ar' required> <span class='glyphicon glyphicon-trash delete-input' aria-hidden='true'>  </span>")
+
+ });
 
 
-  }
+ $(document).on('click', '.delete-input',  function(){
 
-addClassToNew();
+   $(this).prev().remove();
+   $(this).remove();
 
-$('.submit-button').click(function(){
-    if( $('input').val() !== ''){
-          $.LoadingOverlay("show");
-    }
-})
+ })
+
+
+
+ $('.submit-button').click(function(){
+     if( $('.url-input').val() !== ''){
+           $.LoadingOverlay("show");
+     }
+ })
 
 })

@@ -19,7 +19,7 @@
     "express": "^4.15.3",
     "handlebars": "^4.0.10",
     "mongodb": "^2.2.30",
-    "mongoose": "^4.11.3",
+    "mongoose": "^4.11.4",
     "request": "^2.81.0"
   },
   "devDependencies": {
