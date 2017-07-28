@@ -24,12 +24,12 @@ app.listen(8888, () => {
 
   let dbState;
 
-  let promise = mongoose.connect( config.connection, {
+  let promise = mongoose.connect(config.connection, {
     useMongoClient: true,
   });
 
   promise.then(function(db) {
-    if(db) return console.log('all ok');
+    if(db) return console.log('database connected');
   });
 
   promise.catch(function(err){
@@ -50,17 +50,22 @@ app.listen(8888, () => {
 
 
 saveOnDatabase = (obj, cb) =>{
-  TitlesModel.create({ url: obj.url, title: obj.title }, function (err, objInstance) {
-  if (err) return handleError(err);
-  console.log('saved');
-  cb();
-});
+  let url = obj.url
+
+  TitlesModel.find({ 'url': url }, function (err, docs) {
+    if (docs.length == 0){
+      TitlesModel.create({ url: obj.url, title: obj.title }, function (err, objInstance) {
+      if (err) return handleError(err);
+      cb();
+      });
+    }else{
+      cb();
+    }
+  });
 }
 
 app.post('/titles', (req, res) => {
-  console.log(req.body.url);
   let urls=[];
-  console.log(typeof(req.body.url));
 
   if( typeof(req.body.url)=== 'object') {
 
@@ -84,9 +89,7 @@ app.post('/titles', (req, res) => {
             url: url,
             title: $('title').text(),
           }
-
           saveOnDatabase(fullResult, next);
-          // next();
         })
 
         .catch(function (error) {
@@ -95,10 +98,7 @@ app.post('/titles', (req, res) => {
               title: 'NO RESPONDE'
 
             }
-
             saveOnDatabase(unrecognizedUrl, next);
-            // next();
-
         });
 
     } else {

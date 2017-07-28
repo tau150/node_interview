@@ -39,12 +39,20 @@ function highLigth(element) {
 
  })
 
-
-
  $('.submit-button').click(function(){
-     if( $('.url-input').val() !== ''){
-           $.LoadingOverlay("show");
-     }
+   let counter = 0;
+   $('input').each(function() {
+
+       if ($(this).val() === '') {
+            counter++;
+       }
+   });
+
+   if( counter === 0){
+     $.LoadingOverlay("show");
+   }
  })
+
+
 
 })
