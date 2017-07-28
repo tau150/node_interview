@@ -22,4 +22,4 @@ is a new one, or in black color if it was previously required.
 
 If you just want to see the app working, check the following link.
 
-https://nodeinterview-lsnemypfag.now.sh/
+https://nodeinterview-fzwruvkpln.now.sh

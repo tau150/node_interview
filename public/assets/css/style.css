@@ -47,6 +47,7 @@ ul {
   margin-top: 15px;
   width: 80%;
   float: left;
+  height: 30px;
 }
 
 .add-input {
@@ -55,11 +56,13 @@ ul {
 }
 
 .delete-input {
-  margin-top: 25px;
-  margin-left: 15px;
+  height: 30px;
+  margin-top: 22px;
+  padding-left: 15px;
   color: red;
   float: left;
   cursor: pointer;
+  width: 20%;
 }
 
 .delete-input-button {
