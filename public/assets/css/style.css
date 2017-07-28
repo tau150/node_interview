@@ -59,6 +59,7 @@ ul {
   margin-left: 15px;
   color: red;
   float: left;
+  cursor: pointer;
 }
 
 .delete-input-button {

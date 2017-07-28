@@ -27,7 +27,7 @@ function highLigth(element) {
 
  $('.add-input').click(()=>{
 
-    $('.urls-inputs').append("<input type='text' class='form-control url-input' name='url' id='exampleInputEmail1' value='' placeholder='https://google.com http://eldia.com.ar' required> <span class='glyphicon glyphicon-trash delete-input' aria-hidden='true'>  </span>")
+    $('.urls-inputs').append("<input type='text' class='form-control url-input' name='url' id='exampleInputEmail1' value='' placeholder='https://google.com' required> <span class='glyphicon glyphicon-trash delete-input' aria-hidden='true'>  </span>")
 
  });
 
